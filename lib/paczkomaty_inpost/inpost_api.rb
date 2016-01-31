@@ -36,24 +36,24 @@ module PaczkomatyInpost
 
     def inpost_machines_cache_is_valid?(update_params=false)
       inpost_get_params if update_params
-      data_adapter.last_update_machines >= params[:last_update]
+      data_adapter.last_update_machines >= params[:last_update].to_i
     end
 
     def inpost_prices_cache_is_valid?(update_params=false)
       inpost_get_params if update_params
-      data_adapter.last_update_prices >= params[:last_update]
+      data_adapter.last_update_prices >= params[:last_update].to_i
     end
 
     def inpost_update_machine_list(update_params=false)
       inpost_get_params if update_params
       data = request.download_machines
-      data_adapter.save_machine_list(data, params[:last_update])
+      data_adapter.save_machine_list(data, params[:last_update].to_i)
     end
 
     def inpost_update_price_list(update_params=false)
       inpost_get_params if update_params
       data = request.download_pricelist
-      data_adapter.save_price_list(data, params[:last_update])
+      data_adapter.save_price_list(data, params[:last_update].to_i)
     end
 
     def inpost_get_machine_list(options={})
