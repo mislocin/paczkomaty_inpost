@@ -54,7 +54,7 @@ module PaczkomatyInpost
     def last_update_machines
       data = 0
       if File.exist?(File.join(data_path, 'machines_date.dat'))
-        data = File.read(data_path + 'machines_date.dat')
+        data = File.read(data_path + 'machines_date.dat').to_i
       end
 
       return data
@@ -63,7 +63,7 @@ module PaczkomatyInpost
     def last_update_prices
       data = 0
       if File.exist?(File.join(data_path, 'prices_date.dat'))
-        data = File.read(data_path + 'prices_date.dat')
+        data = File.read(data_path + 'prices_date.dat').to_i
       end
 
       return data
